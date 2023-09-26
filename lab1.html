@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>lab1</title>
+    </head>
+
+    <body>
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <th colspan="2">
+                    Филатов Фёдор Романович, группа P3222, вариант 3283
+                </th>
+            </tr>
+            <tr>
+                <td width="20%">
+                    <canvas
+                        id="graph"
+                        width="500"
+                        height="500"
+                        style="border: 2px solid #000000"
+                    ></canvas>
+                </td>
+                <td width="80%">
+                    <form id="myForm" action="index.php" method="get">
+                        <div>
+                            <label>
+                                Выберете координату X :
+                                <button type="button" class="btn" value="-5">
+                                    -5
+                                </button>
+                                <button type="button" class="btn" value="-4">
+                                    -4
+                                </button>
+                                <button type="button" class="btn" value="-3">
+                                    -3
+                                </button>
+                                <button type="button" class="btn" value="-2">
+                                    -2
+                                </button>
+                                <button type="button" class="btn" value="-1">
+                                    -1
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn active"
+                                    value="0"
+                                >
+                                    0
+                                </button>
+                                <button type="button" class="btn" value="1">
+                                    1
+                                </button>
+                                <button type="button" class="btn" value="2">
+                                    2
+                                </button>
+                                <button type="button" class="btn" value="3">
+                                    3
+                                </button>
+                                <input type="hidden" name="x" id="x" />
+                            </label>
+                        </div>
+                        <br />
+                        <div>
+                            <label>
+                                Выберете координату Y (число от -3 до 3) :
+                                <input type="text" name="y" id="y" />
+                            </label>
+                        </div>
+                        <br />
+                        <div id="error"></div>
+                        <br />
+                        <div>
+                            Выберете радиус R :
+                            <input
+                                type="radio"
+                                class="radio"
+                                id="radius1"
+                                name="radius"
+                                value="1"
+                                checked
+                            />
+                            <label for="radius1">1</label>
+
+                            <input
+                                type="radio"
+                                class="radio"
+                                id="radius2"
+                                name="radius"
+                                value="1.5"
+                            />
+                            <label for="radius2">1.5</label>
+
+                            <input
+                                type="radio"
+                                class="radio"
+                                id="radius3"
+                                name="radius"
+                                value="2"
+                            />
+                            <label for="radius3">2</label>
+
+                            <input
+                                type="radio"
+                                class="radio"
+                                id="radius4"
+                                name="radius"
+                                value="2.5"
+                            />
+                            <label for="radius4">2.5</label>
+
+                            <input
+                                type="radio"
+                                class="radio"
+                                id="radius5"
+                                name="radius"
+                                value="3"
+                            />
+                            <label for="radius5">3</label>
+                        </div>
+                        <div>
+                            <br />
+                            <button type="button" id="submitBtn" class="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td colspan="2">
+                    <div id="results" style="text-align: center">
+                        <table id="tableResult" style="margin: auto">
+                            <tr>
+                                <th width="150">x</th>
+                                <th width="150">y</th>
+                                <th width="150">r</th>
+                                <th width="150">Попадание точки в график</th>
+                                <th width="150">Время выполнения (в милисекундах)</th>
+                                <th width="150">Время</th>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr> -->
+        </table>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script async src="/js/Renderer.js"></script>
+        <script async src="/js/ClientData.js"></script>
+        <script async src="/js/Sender.js"></script>
+        <script async src="/js/EvenAdder.js"></script>
+        <script async src="/js/Main.js"></script>
+    </body>
+</html>

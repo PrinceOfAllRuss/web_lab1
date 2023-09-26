@@ -1,0 +1,20 @@
+td {
+    padding: 20px;
+}
+.btn {
+    border: none;
+    outline: none;
+    padding: 5px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 14px;
+}
+.active {
+    background-color: rgb(179, 204, 174);
+}
+.radio {
+    font-size: medium;
+}
+.submit {
+    font-size: large;
+}
