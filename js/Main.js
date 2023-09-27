@@ -1,8 +1,15 @@
 window.onload = function() {
-    var fisrstTimeClickSubmit = false;
 
-    var renderer = new Renderer();
-    renderer.drawGraph();
+    const renderer = new Renderer();
+    const clientData = new ClientData();
+
+    if (localStorage.getItem("x") !== undefined || localStorage.getItem("y") !== undefined || localStorage.getItem("r") !== undefined) {
+        clientData.x = Number(localStorage.getItem("x"));
+        clientData.y = Number(localStorage.getItem("y"));
+        clientData.r = Number(localStorage.getItem("r"));
+    }
+
+    renderer.drawGraph(clientData);
 
     var eventAdder = new EventAdder(renderer);
     eventAdder.addEventForXButton();

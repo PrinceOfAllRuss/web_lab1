@@ -9,8 +9,8 @@ class Renderer {
 	yAxis;
 	shiftNumberNames;
 	shiftAxisNames;
-	clientData;
     firstTimeClickSubmit;
+	clientData;
 
 	constructor() {
 		this.graph = document.getElementById("graph");
@@ -23,7 +23,6 @@ class Renderer {
 		this.yAxis = Math.round(this.graphHeight / this.scaleY / 2) * this.scaleY;
 		this.shiftNumberNames = 5;
 		this.shiftAxisNames = 20;
-		this.clientData = new ClientData();
 		this.firstTimeClickSubmit = false;
 	}
 
@@ -34,7 +33,7 @@ class Renderer {
 		this.context.fillStyle = "#000000"; //черный цвет для цифр
 	
 		//Рисуем клетки
-		this.context.font = `${Math.round(this.scaleX / 2)}px Arial`;
+		this.context.font = `${Math.round(this.scaleX / 2)}px Georgia`;
 		this.context.textAlign = "left";
 		this.context.textBaseline = "top";
 	
@@ -81,23 +80,26 @@ class Renderer {
 		this.context.closePath();
 	}
 	
-	drawPoint() {
+	drawPoint(clientData) {
 		this.context.beginPath();
 		this.context.fillStyle = "#dc143c";
 		this.context.globalAlpha = 1;
-		this.context.arc(this.xAxis + this.clientData.x * this.scaleX, 
-			this.yAxis - this.clientData.y * this.scaleY, 3, 0, 2 * Math.PI);
+		this.context.arc(this.xAxis + clientData.x * this.scaleX, 
+		this.yAxis - clientData.y * this.scaleY, 3, 0, 2 * Math.PI);
 		this.context.fill();
 		this.context.closePath();
 	}
 	
-	drawGraph() {
+	drawGraph(clientData) {
+		if (clientData) {
+			this.clientData = clientData;
+		}
 		this.drawGraphBackground();
 	
 		let radiuses = document.querySelectorAll(".radio");
 		for (let i = 0; i < radiuses.length; i++) {
 			if (radiuses[i].checked) {
-				this.r = Number(radiuses[i].value);
+				this.clientData.r = Number(radiuses[i].value);
 				break;
 			}
 		}
@@ -132,11 +134,9 @@ class Renderer {
 		this.context.stroke();
 		this.context.closePath();
 	
-		if (this.firstTimeClickSubmit) {
-			let coordinateY = document.getElementById("y");
-			if (coordinateY.value != "" && !isNaN(coordinateY.value)) {
-				this.drawPoint();
-			}
-		}
+		if (this.clientData.x !== undefined || this.clientData.y !== undefined) {
+			console.log("have data");
+			this.drawPoint(clientData);
+		} else console.log("no data");
 	}
 }

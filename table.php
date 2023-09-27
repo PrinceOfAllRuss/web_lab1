@@ -10,12 +10,14 @@ if (empty(session_id()) && !headers_sent()) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="styles.css" />
+	<title>Table</title>
 </head>
 
 <body>
 	<template id="value" data-value='<?php echo json_encode($_SESSION) ?>'></template>
 	<div id="results">
+		<button type="button" id="back">Back</button>
 		<table id="tableResult" style="margin: auto">
 			<tr>
 				<th width="150">x</th>
@@ -90,6 +92,9 @@ if (empty(session_id()) && !headers_sent()) {
 				}
 				console.log("you are here");
 				addTable();
+				document.getElementById("back").addEventListener("click", () => {
+					location = "/lab1.html"
+				});
 			</script>
 		</table>
 	</div>

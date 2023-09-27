@@ -23,7 +23,7 @@ class EventAdder {
 	}
 
 	addEventForRadio() {
-		var radios = document.getElementsByClassName("radio");
+		let radios = document.getElementsByClassName("radio");
     	for (let i = 0; i < radios.length; i++) {
         	radios[i].addEventListener("change", () => this.renderer.drawGraph());
     	}
@@ -32,9 +32,6 @@ class EventAdder {
 	addEventForSubmit() {
 		document.getElementById("submitBtn").addEventListener("click", () => {
 			this.sender.submitForm();
-			if (this.sender.firstTimeClickSubmit) {
-				this.renderer.firstTimeClickSubmit = true;
-			}
 		});
 	}
 
@@ -42,9 +39,11 @@ class EventAdder {
 		document.getElementById("myForm").addEventListener("submit", (event) => {
 			event.preventDefault();
 			this.sender.submitForm();
-			if (this.sender.firstTimeClickSubmit) {
-				this.renderer.firstTimeClickSubmit = true;
-			}
 		});
 	}
+
+	// создание таблицы на той же странице
+    // document.getElementById("submitBtn").addEventListener("click", () => {
+    //     addTable();
+    // });
 }

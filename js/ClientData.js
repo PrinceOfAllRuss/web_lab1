@@ -3,8 +3,6 @@ class ClientData {
 	y;
 	r;
 	constructor() {
-		this.x = 0;
-		this.y = 0;
 		this.r = 1;
 	}
 
@@ -20,6 +18,13 @@ class ClientData {
             this.y = Number(coordinateY);
         } else {
             return condition;
+        }
+
+        let radios = document.getElementsByClassName("radio");
+        for (let r of radios) {
+            if (r.checked) {
+                this.r = Number(r.value);
+            }
         }
 
         console.log(this.x, this.y, this.r)
